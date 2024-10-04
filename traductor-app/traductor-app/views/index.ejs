@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traductor y Pronunciación</title>
+</head>
+<body>
+    <h1>Traductor de Textos y Pronunciación</h1>
+    <form action="/traducir" method="POST">
+        <label for="texto">Texto a traducir:</label>
+        <input type="text" name="texto" id="texto" required>
+        <label for="idioma">Selecciona el idioma:</label>
+        <select name="idioma" id="idioma">
+            <option value="en">Inglés</option>
+            <option value="zh-CN">Mandarín</option>
+            <option value="pt">Portugués</option>
+        </select>
+        <button type="submit">Traducir</button>
+    </form>
+
+    <% if (typeof traduccion !== 'undefined') { %>
+        <h2>Traducción: <%= traduccion %></h2>
+        <h3>Pronunciación:</h3>
+        <audio controls>
+            <source src="<%= audioPath %>" type="audio/mp3">
+            Tu navegador no soporta audio.
+        </audio>
+    <% } %>
+</body>
+</html>
